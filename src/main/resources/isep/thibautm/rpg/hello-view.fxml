@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane fx:id="mainWindow" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="720.0" minWidth="1080.0" prefHeight="400.0" prefWidth="600.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="isep.thibautm.rpg.HelloController">
+   <children>
+      <Pane fx:id="menu" minHeight="720.0" minWidth="1080.0" prefHeight="200.0" prefWidth="200.0" styleClass="backgroundTitle">
+         <children>
+            <Button id="startButton" layoutX="404.0" layoutY="465.0" mnemonicParsing="false" onAction="#onStartButtonClick" text="Jouer" textAlignment="CENTER" textOverrun="CLIP">
+               <font>
+                  <Font name="Goudy Stout" size="36.0" />
+               </font>
+            </Button>
+            <Label layoutX="322.0" layoutY="135.0" text="Rpg" textFill="WHITE">
+               <font>
+                  <Font name="Goudy Stout" size="48.0" />
+               </font>
+            </Label>
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </Pane>
+      <Pane fx:id="playerSelector" disable="true" visible="false" minHeight="720.0" minWidth="1080.0" styleClass="backgroundHeroSelector">
+         <children>
+
+            <ImageView id="warriorImage" fitHeight="150.0" fitWidth="83.0" layoutX="200.0" layoutY="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@warrior.png" />
+               </image></ImageView>
+            <Label layoutX="140.0" layoutY="310.0" text="Warrior" textFill="BLACK">
+               <font>
+                  <Font name="Goudy Stout" size="20.0" />
+               </font>
+            </Label>
+            <Slider fx:id="warriorSlider" blockIncrement="1.0" layoutX="160.0" layoutY="360.0" majorTickUnit="1.0" max="6.0"
+                    min="1.0" minorTickCount="1" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="1.0" />
+            <Label fx:id="warriorNumber" layoutX="210.0" layoutY="390.0" prefHeight="17.0" prefWidth="83.0">
+               <font>
+                  <Font name="Goudy Stout" size="40.0" />
+               </font>
+            </Label>
+
+            <ImageView id="archerImage" fitHeight="150.0" fitWidth="83.0" layoutX="400.0" layoutY="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@hunter.png" />
+               </image></ImageView>
+            <Label layoutX="360.0" layoutY="310.0" text="Archer" textFill="BLACK">
+               <font>
+                  <Font name="Goudy Stout" size="20.0" />
+               </font>
+            </Label>
+            <Slider fx:id="hunterSlider" blockIncrement="1.0" layoutX="360.0" layoutY="360.0" majorTickUnit="1.0" max="6.0"
+                    min="1.0" minorTickCount="1" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="1.0" />
+            <Label fx:id="hunterNumber" layoutX="410.0" layoutY="390.0" prefHeight="17.0" prefWidth="83.0">
+               <font>
+                  <Font name="Goudy Stout" size="40.0" />
+               </font>
+            </Label>
+
+            <ImageView id="mageImage" fitHeight="150.0" fitWidth="83.0" layoutX="600.0" layoutY="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@mage.png" />
+               </image></ImageView>
+            <Label layoutX="570.0" layoutY="310.0" text="Mage" textFill="BLACK">
+               <font>
+                  <Font name="Goudy Stout" size="20.0" />
+               </font>
+            </Label>
+            <Slider fx:id="mageSlider" blockIncrement="1.0" layoutX="560.0" layoutY="360.0" majorTickUnit="1.0" max="6.0"
+                    min="1.0" minorTickCount="1" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="1.0" />
+            <Label fx:id="mageNumber" layoutX="610.0" layoutY="390.0" prefHeight="17.0" prefWidth="83.0">
+               <font>
+                  <Font name="Goudy Stout" size="40.0" />
+               </font>
+            </Label>
+
+            <ImageView id="healerImage" fitHeight="150.0" fitWidth="83.0" layoutX="800.0" layoutY="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@healer.png" />
+               </image></ImageView>
+            <Label layoutX="770.0" layoutY="310.0" text="Healer" textFill="BLACK">
+               <font>
+                  <Font name="Goudy Stout" size="20.0" />
+               </font>
+            </Label>
+            <Slider fx:id="healerSlider" blockIncrement="1.0" layoutX="760.0" layoutY="360.0" majorTickUnit="1.0" max="6.0"
+                    min="1.0" minorTickCount="1" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="1.0" />
+            <Label fx:id="healerNumber" layoutX="810.0" layoutY="390.0" prefHeight="17.0" prefWidth="83.0">
+               <font>
+                  <Font name="Goudy Stout" size="40.0" />
+               </font>
+            </Label>
+
+            <Button layoutX="450.0" layoutY="500.0" mnemonicParsing="false" onAction="#startGame" text="Start Fight">
+               <font>
+                  <Font name="Impact" size="40.0" />
+               </font>
+            </Button>
+
+         </children>
+      </Pane>
+      <Pane fx:id="fightScene" disable="true" minHeight="720.0" minWidth="1080.0" prefHeight="200.0" prefWidth="1080.0" styleClass="backgroundFight" visible="false">
+         <children>
+            <ImageView id="warriorImage" fitHeight="91.0" fitWidth="83.0" layoutX="318.0" layoutY="513.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@warrior.png" />
+               </image></ImageView>
+            <ImageView id="mageImage" fitHeight="105.0" fitWidth="68.0" layoutX="166.0" layoutY="508.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@mage.png" />
+               </image>
+            </ImageView>
+            <ImageView id="healerImage" fitHeight="95.0" fitWidth="68.0" layoutX="90.0" layoutY="511.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@healer.png" />
+               </image>
+            </ImageView>
+            <ImageView id="hunterImage" fitHeight="95.0" fitWidth="83.0" layoutX="240.0" layoutY="496.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@hunter.png" />
+               </image>
+            </ImageView>
+            <ImageView id="enemy1" fitHeight="89.0" fitWidth="68.0" layoutX="738.0" layoutY="523.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@orc.png" />
+               </image>
+            </ImageView>
+            <ImageView id="enemy2" fitHeight="91.0" fitWidth="83.0" layoutX="812.0" layoutY="498.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@ours.png" />
+               </image>
+            </ImageView>
+            <ImageView id="enemy3" fitHeight="91.0" fitWidth="83.0" layoutX="874.0" layoutY="528.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@demon.png" />
+               </image>
+            </ImageView>
+            <ImageView id="enemy4" fitHeight="91.0" fitWidth="83.0" layoutX="933.0" layoutY="504.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@dragon.png" />
+               </image>
+            </ImageView>
+            <Pane layoutX="-2.0" prefHeight="289.0" prefWidth="1090.0" styleClass="backgroundMenu">
+               <children>
+                  <Button fx:id="attackButton" disable="true" layoutX="211.0" layoutY="26.0" minHeight="105.0" minWidth="187.0" mnemonicParsing="false" styleClass="atkButton" text="Attaquer">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                     <padding>
+                        <Insets top="10.0" />
+                     </padding>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Button>
+                  <Button fx:id="potionButton" disable="true" layoutX="211.0" layoutY="160.0" minHeight="105.0" minWidth="187.0" mnemonicParsing="false" styleClass="potionButton" text="Potion">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                     <padding>
+                        <Insets top="10.0" />
+                     </padding>
+                  </Button>
+                  <Line endX="73.0" endY="179.0" fill="#4b4651" layoutX="115.0" layoutY="110.0" startX="73.0" startY="-110.0" stroke="#4b4651" strokeLineCap="ROUND" strokeWidth="2.0" />
+                  <Button fx:id="regenButton" disable="true" layoutX="418.0" layoutY="26.0" minHeight="105.0" minWidth="187.0" mnemonicParsing="false" styleClass="reloadButton" text="Recharger">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                     <padding>
+                        <Insets top="10.0" />
+                     </padding>
+                  </Button>
+                  <Label fx:id="heroName" layoutX="14.0" layoutY="26.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="hpCount" layoutX="14.0" layoutY="59.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="atkCount" layoutX="14.0" layoutY="86.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="arrowCount" layoutX="14.0" layoutY="118.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="manaCount" layoutX="14.0" layoutY="118.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="foodButton" disable="true" layoutX="418.0" layoutY="160.0" minHeight="105.0" minWidth="187.0" mnemonicParsing="false" styleClass="foodButton" text="Nourriture">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                     <padding>
+                        <Insets top="10.0" />
+                     </padding>
+                  </Button>
+               </children></Pane>
+         </children></Pane>
+      <Pane fx:id="gameOverScreen" disable="true" prefHeight="720.0" prefWidth="1080.0" styleClass="gameOverBackground" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <Pane fx:id="innBackground" disable="true" prefHeight="720.0" prefWidth="1080.0" styleClass="innBackground" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Button fx:id="upArmor" layoutX="447.0" layoutY="130.0" minHeight="105.0" minWidth="187.0" mnemonicParsing="false" styleClass="atkButton" text="Armure">
+               <font>
+                  <Font size="24.0" />
+               </font>
+               <padding>
+                  <Insets top="10.0" />
+               </padding>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Button>
+            <Button fx:id="upAttack" layoutX="188.0" layoutY="130.0" minHeight="105.0" minWidth="187.0" mnemonicParsing="false" styleClass="atkButton" text="Attaque">
+               <font>
+                  <Font size="24.0" />
+               </font>
+               <padding>
+                  <Insets top="10.0" />
+               </padding>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Button>
+            <Button fx:id="moreConsumable" layoutX="695.0" layoutY="130.0" minHeight="105.0" minWidth="187.0" mnemonicParsing="false" styleClass="atkButton" text="Quantité de consommable">
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <padding>
+                  <Insets top="10.0" />
+               </padding>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Button>
+            <Button fx:id="upConsumable" layoutX="695.0" layoutY="283.0" minHeight="105.0" minWidth="187.0" mnemonicParsing="false" styleClass="atkButton" text="Efficacité consommable">
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <padding>
+                  <Insets top="10.0" />
+               </padding>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Button>
+            <Button fx:id="moreAmmo" layoutX="188.0" layoutY="283.0" minHeight="105.0" minWidth="187.0" mnemonicParsing="false" styleClass="atkButton" text="Recharger mana/flèches">
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <padding>
+                  <Insets top="10.0" />
+               </padding>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Button>
+         </children></Pane>
+   </children>
+</AnchorPane>

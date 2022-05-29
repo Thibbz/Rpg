@@ -1,0 +1,65 @@
+.backgroundTitle{
+    -fx-background-image: url("../../../../../img/backgroundMenuTitle.png");
+    -fx-background-size: cover;
+    -fx-background-repeat: no-repeat;
+}
+
+.backgroundFight{
+    -fx-background-image: url("../../../../../img/backgroundMenuTitle.png");
+    -fx-background-size: cover;
+    -fx-background-repeat: no-repeat;
+}
+
+.backgroundPlayerSelect{
+    -fx-background-image: url("../../../../../img/backgroundMenuTitle.png");
+    -fx-background-size: cover;
+    -fx-background-repeat: no-repeat;
+}
+
+.planks{
+    -fx-background-image: url("../../../../../img/planks.png");
+    -fx-background-size: contain;
+    -fx-background-repeat: repeat;
+}
+
+.backgroundMenu{
+    -fx-background-image: url("../../../../../img/background.png");
+    -fx-background-size: cover;
+    -fx-background-repeat: no-repeat;
+}
+
+.innBackground{
+    -fx-background-image: url("../../../../../img/backgroundInn.png");
+    -fx-background-size: cover;
+    -fx-background-repeat: no-repeat;
+}
+
+.gameOverBackground{
+    -fx-background-image: url("../../../../../img/gameOverScreen.png");
+    -fx-background-size: cover;
+    -fx-background-repeat: no-repeat;
+}
+
+.atkButton{
+    -fx-background-image: url("../../../../../img/buttonAtk.png");
+    -fx-background-size: contain;
+    -fx-background-repeat: no-repeat;
+}
+
+.potionButton{
+    -fx-background-image: url("../../../../../img/buttonPotion.png");
+    -fx-background-size: contain;
+    -fx-background-repeat: no-repeat;
+}
+
+.foodButton{
+    -fx-background-image: url("../../../../../img/buttonFood.png");
+    -fx-background-size: contain;
+    -fx-background-repeat: no-repeat;
+}
+
+.reloadButton{
+    -fx-background-image: url("../../../../../img/buttonReload.png");
+    -fx-background-size: contain;
+    -fx-background-repeat: no-repeat;
+}
